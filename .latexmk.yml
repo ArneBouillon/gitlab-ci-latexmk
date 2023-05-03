@@ -1,0 +1,22 @@
+image: thubo/latexmk
+
+variables:
+  DIR: .
+
+stages:
+  - compile
+  - publish
+
+latexmk:
+  stage: compile
+  script: cd $DIR && latexmk -pdf
+  artifacts:
+    paths:
+      - $DIR/main.pdf
+
+pages:
+  stage: publish
+  script: mkdir public && cp $DIR/main.pdf public
+  artifacts:
+    paths:
+      - public

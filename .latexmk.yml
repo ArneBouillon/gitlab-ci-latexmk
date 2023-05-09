@@ -1,4 +1,4 @@
-image: thubo/latexmk:small
+image: thubo/latexmk:medium
 
 variables:
   DIR: .

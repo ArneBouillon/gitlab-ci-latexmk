@@ -2,6 +2,7 @@ image: thubo/latexmk:medium
 
 variables:
   DIR: .
+  FILENAME: main
 
 stages:
   - compile
@@ -12,11 +13,11 @@ latexmk:
   script: cd $DIR && latexmk -pdf
   artifacts:
     paths:
-      - $DIR/main.pdf
+      - $DIR/$FILENAME.pdf
 
 pages:
   stage: publish
-  script: mkdir public && cp $DIR/main.pdf public && echo '<a href="main.pdf" target="_blank">PDF.</a>' > public/index.html
+  script: mkdir public && cp $DIR/$FILENAME.pdf public && echo '<a href="$FILENAME.pdf" target="_blank">PDF.</a>' > public/index.html
   artifacts:
     paths:
       - public

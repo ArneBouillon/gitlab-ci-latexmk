@@ -17,7 +17,7 @@ latexmk:
 
 pages:
   stage: publish
-  script: mkdir public && cp $DIR/$FILENAME.pdf public && echo '<a href="$FILENAME.pdf" target="_blank">PDF.</a>' > public/index.html
+  script: mkdir public && cp $DIR/$FILENAME.pdf public/main.pdf && echo '<a href="main.pdf" target="_blank">PDF.</a>' > public/index.html
   artifacts:
     paths:
       - public

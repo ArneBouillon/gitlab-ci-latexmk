@@ -10,7 +10,7 @@ stages:
 
 latexmk:
   stage: compile
-  script: cd $DIR && latexmk -pdf
+  script: cd $DIR && latexmk -pdf $FILENAME.tex
   artifacts:
     paths:
       - $DIR/$FILENAME.pdf

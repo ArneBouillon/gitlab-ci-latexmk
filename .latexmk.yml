@@ -3,6 +3,7 @@ image: thubo/latexmk:medium
 variables:
   DIR: .
   FILENAME: main
+  LATEXMK_ARGS: "-pdf"
 
 stages:
   - compile
@@ -10,7 +11,7 @@ stages:
 
 latexmk:
   stage: compile
-  script: cd $DIR && latexmk -pdf $FILENAME.tex
+  script: cd $DIR && latexmk $LATEXMK_ARGS $FILENAME.tex
   artifacts:
     paths:
       - $DIR/$FILENAME.pdf
